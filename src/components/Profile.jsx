@@ -9,7 +9,7 @@ import {
 } from 'blockstack';
 
 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend} from 'recharts';
 
 
 const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder.png';
@@ -52,6 +52,9 @@ export default class Profile extends Component {
 
       isLoadingB: false,
       isLoadingE: false,
+
+      budgettotal: 0,
+      expensetotal: 0,
 
       localdata: data
     };
@@ -111,14 +114,27 @@ export default class Profile extends Component {
                   <div className="bes">
                     {this.state.isLoadingB && <span>Loading...</span>}
                     {this.state.budgets.map((budget, index) => (
-                        <div className="be" key={budget.id}>
-                          {budget.note_}: {budget.float_}
+                        <div className="be" key={budget.id}><h4>
+                          <h4 style={{textAlign: "left"}}>{budget.note_}</h4> {budget.float_}
                             <img src={'https://img.icons8.com/office/16/000000/cancel.png'}
                             onClick={e=> this.handleDeleteBudget(index)}
                             style={{cursor: "pointer", paddingLeft: "1rem"}}/>
+                          </h4>
                         </div>
                       )
                     )}
+                  </div>
+                  <div className="total">
+                      {/* let {budtotal} = 0
+                      {this.state.budgets.map((budget) => (
+                            <div key={budget.id}><h4>
+                               budtotal = budtotal + {budget.float_}
+                              </h4>
+                            </div>
+                          )
+                        )}
+                        Total budget budtotal: {budtotal} */}
+                        
                   </div>
               </div>
                       
@@ -152,7 +168,14 @@ export default class Profile extends Component {
                     )
                   )}
                 </div>
+
+                <div className="total">
+
+                </div>
+
               </div>
+
+              
 
           </div>
 
@@ -161,6 +184,8 @@ export default class Profile extends Component {
                 <Line type="monotone" dataKey="budget" stroke="#8884d8" />
                 <Line type="monotone" dataKey="expenses" stroke="#82ca9d" />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                <Tooltip/>
+                <Legend/>
                 <XAxis dataKey="name" />
                 <YAxis />
               </LineChart>
@@ -205,7 +230,7 @@ export default class Profile extends Component {
     }
  
     //localdata[3].budget = this.state.localdata[3].budget+budget.float_ //lol
-
+    //budgettotal = budgettotal + float
     budgets.push(budget)
     const options = { encrypt: false }
     putFile('budgets.json', JSON.stringify(budgets), options)
@@ -241,7 +266,7 @@ export default class Profile extends Component {
       float_: float,
       created_at: Date.now()
     }
-
+    //expensetotal = expensetotal + float
     expenses.push(expense)
     const options = { encrypt: false }
     putFile('expenses.json', JSON.stringify(expenses), options)
@@ -255,6 +280,7 @@ export default class Profile extends Component {
 
   handleDeleteBudget(index) {
     let budgets = this.state.budgets
+   // budgettotal = budgettotal - budgets[index].float_
     budgets.splice(index,1)
     
     const options = { encrypt: false }
@@ -268,6 +294,7 @@ export default class Profile extends Component {
 
   handleDeleteExpense(index) {
     let expenses = this.state.expenses
+   // expensetotal = expensetotal - expenses[index].float_
     expenses.splice(index,1)
 
     const options = { encrypt: false }
