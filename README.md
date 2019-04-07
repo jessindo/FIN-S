@@ -1,2 +1,2 @@
 # FIN-S
-blockstack financial app for students hence the s (like finesse)
+blockstack financial app for security and students hence the s (like finesse)
