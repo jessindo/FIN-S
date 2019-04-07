@@ -12,7 +12,7 @@ export default class Signin extends Component {
 
     return (
       <div className="panel-landing" id="section-1">
-        <Typist><h1 className="landing-heading">Hello, Blockstack!</h1></Typist>
+        <Typist><h1 className="landing-heading">Hello, it's FIN-S!</h1></Typist>
         <p className="lead">
           <button
             className="btn btn-primary btn-lg"

@@ -1,7 +1,7 @@
 {
-  "name": "hello-blockstack",
+  "name": "FIN-S",
   "version": "0.0.0",
-  "description": "A simple Blockstack app using ReactJS",
+  "description": "Financial planning app using Blockstack and React.js",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blockstack/hello-blockstack.git"
+    "url": "git+https://github.com/jessindo/FIN-S"
   },
   "bugs": {
-    "url": "https://github.com/blockstack/hello-blockstack/issues"
+    "url": "https://github.com/jessindo/FIN-S/issues"
   },
-  "homepage": "https://github.com/blockstack/hello-blockstack#readme",
-  "author": "",
-  "license": "MIT",
+  "homepage": "https://github.com/jessindo/FIN-S#readme",
+  "author": "Rena Cai, Jessica Hadiwijoyo, Emily Kuo, Ashley Su",
+  "license": "",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
