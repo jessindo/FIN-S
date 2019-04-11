@@ -1,5 +1,5 @@
 # FIN-S
-blockstack financial app for security and students hence the s (like finesse)
+blockstack financial app for security and students 
 
 the following commands will tell you whether you have npm installed or not:
 for windows: $ where.exe npm
